@@ -1,0 +1,396 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PPVdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="id_client" />
+    </Key>
+    <Property Name="id_client" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="clientID" Type="varchar" MaxLength="50" />
+    <Property Name="client" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="level">
+    <Key>
+      <PropertyRef Name="id_level" />
+    </Key>
+    <Property Name="id_level" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="level" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="MFG">
+    <Key>
+      <PropertyRef Name="id_mfg" />
+    </Key>
+    <Property Name="id_mfg" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="mfg" Type="varchar" MaxLength="50" />
+    <Property Name="mfg_desc" Type="varchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="PN">
+    <Key>
+      <PropertyRef Name="id_pn" />
+    </Key>
+    <Property Name="id_pn" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="pn" Type="varchar" MaxLength="50" />
+    <Property Name="pnDesc" Type="varchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PPV">
+    <Key>
+      <PropertyRef Name="id_ppv" />
+    </Key>
+    <Property Name="id_ppv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wo" Type="varchar" MaxLength="100" />
+    <Property Name="po" Type="varchar" MaxLength="100" />
+    <Property Name="qty" Type="int" />
+    <Property Name="av_price" Type="money" />
+    <Property Name="new_price" Type="money" />
+    <Property Name="buyer" Type="int" />
+    <Property Name="reason" Type="varchar" MaxLength="100" />
+    <Property Name="times" Type="varchar" MaxLength="50" />
+    <Property Name="OtherChange" Type="int" />
+    <Property Name="elaborate" Type="varchar" MaxLength="255" />
+    <Property Name="leadtime" Type="varchar" MaxLength="10" />
+    <Property Name="explanation" Type="varchar" MaxLength="1700" />
+    <Property Name="change_unit" Type="money" />
+    <Property Name="change_unit_perc" Type="float" />
+    <Property Name="current_total" Type="money" />
+    <Property Name="new_total" Type="money" />
+    <Property Name="total_increase" Type="money" />
+    <Property Name="first_auth" Type="int" />
+    <Property Name="last_auth" Type="int" />
+    <Property Name="date_ppv" Type="datetime" />
+    <Property Name="first_date" Type="datetime" />
+    <Property Name="last_date" Type="datetime" />
+    <Property Name="first_approval" Type="bit" />
+    <Property Name="last_approval" Type="bit" />
+    <Property Name="pn" Type="int" />
+    <Property Name="client" Type="int" />
+    <Property Name="vendor" Type="int" />
+    <Property Name="first_note" Type="varchar" MaxLength="255" />
+    <Property Name="last_note" Type="varchar" MaxLength="255" />
+    <Property Name="salesOrder" Type="bit" />
+    <Property Name="salesOrder_num" Type="varchar" MaxLength="50" />
+    <Property Name="note" Type="varchar" MaxLength="255" />
+    <Property Name="void" Type="bit" />
+    <Property Name="id_mfg" Type="int" />
+  </EntityType>
+  <EntityType Name="PPV_Fail">
+    <Key>
+      <PropertyRef Name="id_ppv" />
+    </Key>
+    <Property Name="id_ppv" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="wo" Type="varchar" MaxLength="100" />
+    <Property Name="po" Type="varchar" MaxLength="100" />
+    <Property Name="qty" Type="int" />
+    <Property Name="av_price" Type="money" />
+    <Property Name="new_price" Type="money" />
+    <Property Name="buyer" Type="int" />
+    <Property Name="reason" Type="varchar" MaxLength="100" />
+    <Property Name="times" Type="varchar" MaxLength="50" />
+    <Property Name="OtherChange" Type="int" />
+    <Property Name="elaborate" Type="varchar" MaxLength="255" />
+    <Property Name="leadtime" Type="varchar" MaxLength="10" />
+    <Property Name="explanation" Type="varchar" MaxLength="1700" />
+    <Property Name="change_unit" Type="money" />
+    <Property Name="change_unit_perc" Type="float" />
+    <Property Name="current_total" Type="money" />
+    <Property Name="new_total" Type="money" />
+    <Property Name="total_increase" Type="money" />
+    <Property Name="first_auth" Type="int" />
+    <Property Name="last_auth" Type="int" />
+    <Property Name="date_ppv" Type="datetime" />
+    <Property Name="first_date" Type="datetime" />
+    <Property Name="last_date" Type="datetime" />
+    <Property Name="first_approval" Type="bit" />
+    <Property Name="last_approval" Type="bit" />
+    <Property Name="pn" Type="int" />
+    <Property Name="client" Type="int" />
+    <Property Name="vendor" Type="int" />
+    <Property Name="first_note" Type="varchar" MaxLength="255" />
+    <Property Name="last_note" Type="varchar" MaxLength="255" />
+    <Property Name="salesOrder" Type="bit" />
+    <Property Name="salesOrder_num" Type="varchar" MaxLength="20" />
+    <Property Name="note" Type="varchar" MaxLength="255" />
+    <Property Name="void" Type="bit" />
+    <Property Name="id_mfg" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="255" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="username" Type="varchar" MaxLength="50" />
+    <Property Name="password" Type="varchar" MaxLength="50" />
+    <Property Name="id" Type="int" />
+    <Property Name="id_level" Type="int" />
+    <Property Name="code" Type="varchar" MaxLength="5" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="id_vendor" />
+    </Key>
+    <Property Name="id_vendor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="vendorID" Type="varchar" MaxLength="50" />
+    <Property Name="vendor" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK__PPV__buyer__49C3F6B7">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="PPV" Type="Self.PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV__first_auth__4AB81AF0">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="PPV" Type="Self.PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="first_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV__last_auth__4BAC3F29">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="PPV" Type="Self.PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="last_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV_Fail__buyer__29221CFB">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="PPV_Fail" Type="Self.PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV_Fail__first___2A164134">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="PPV_Fail" Type="Self.PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="first_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV_Fail__last_a__2B0A656D">
+    <End Role="users" Type="Self.users" Multiplicity="0..1" />
+    <End Role="PPV_Fail" Type="Self.PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="users">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="last_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__id_level__1273C1CD">
+    <End Role="level" Type="Self.level" Multiplicity="0..1" />
+    <End Role="users" Type="Self.users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="level">
+        <PropertyRef Name="id_level" />
+      </Principal>
+      <Dependent Role="users">
+        <PropertyRef Name="id_level" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="PPV" Type="Self.PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="PPV_Fail" Type="Self.PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_MFG">
+    <End Role="MFG" Type="Self.MFG" Multiplicity="0..1" />
+    <End Role="PPV_Fail" Type="Self.PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MFG">
+        <PropertyRef Name="id_mfg" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="id_mfg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_PN">
+    <End Role="PN" Type="Self.PN" Multiplicity="0..1" />
+    <End Role="PPV_Fail" Type="Self.PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PN">
+        <PropertyRef Name="id_pn" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="pn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_Vendor">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="PPV_Fail" Type="Self.PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="id_vendor" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="vendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_MFG">
+    <End Role="MFG" Type="Self.MFG" Multiplicity="0..1" />
+    <End Role="PPV" Type="Self.PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MFG">
+        <PropertyRef Name="id_mfg" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="id_mfg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_PN">
+    <End Role="PN" Type="Self.PN" Multiplicity="0..1" />
+    <End Role="PPV" Type="Self.PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PN">
+        <PropertyRef Name="id_pn" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="pn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Vendor">
+    <End Role="Vendor" Type="Self.Vendor" Multiplicity="0..1" />
+    <End Role="PPV" Type="Self.PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="id_vendor" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="vendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PPVdbModelStoreContainer">
+    <EntitySet Name="Client" EntityType="Self.Client" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="level" EntityType="Self.level" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MFG" EntityType="Self.MFG" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PN" EntityType="Self.PN" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PPV" EntityType="Self.PPV" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PPV_Fail" EntityType="Self.PPV_Fail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__PPV__buyer__49C3F6B7" Association="Self.FK__PPV__buyer__49C3F6B7">
+      <End Role="users" EntitySet="users" />
+      <End Role="PPV" EntitySet="PPV" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV__first_auth__4AB81AF0" Association="Self.FK__PPV__first_auth__4AB81AF0">
+      <End Role="users" EntitySet="users" />
+      <End Role="PPV" EntitySet="PPV" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV__last_auth__4BAC3F29" Association="Self.FK__PPV__last_auth__4BAC3F29">
+      <End Role="users" EntitySet="users" />
+      <End Role="PPV" EntitySet="PPV" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV_Fail__buyer__29221CFB" Association="Self.FK__PPV_Fail__buyer__29221CFB">
+      <End Role="users" EntitySet="users" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV_Fail__first___2A164134" Association="Self.FK__PPV_Fail__first___2A164134">
+      <End Role="users" EntitySet="users" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV_Fail__last_a__2B0A656D" Association="Self.FK__PPV_Fail__last_a__2B0A656D">
+      <End Role="users" EntitySet="users" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__id_level__1273C1CD" Association="Self.FK__users__id_level__1273C1CD">
+      <End Role="level" EntitySet="level" />
+      <End Role="users" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Client" Association="Self.FK_PPV_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="PPV" EntitySet="PPV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_Client" Association="Self.FK_PPV_Fail_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_MFG" Association="Self.FK_PPV_Fail_MFG">
+      <End Role="MFG" EntitySet="MFG" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_PN" Association="Self.FK_PPV_Fail_PN">
+      <End Role="PN" EntitySet="PN" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_Vendor" Association="Self.FK_PPV_Fail_Vendor">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_MFG" Association="Self.FK_PPV_MFG">
+      <End Role="MFG" EntitySet="MFG" />
+      <End Role="PPV" EntitySet="PPV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_PN" Association="Self.FK_PPV_PN">
+      <End Role="PN" EntitySet="PN" />
+      <End Role="PPV" EntitySet="PPV" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Vendor" Association="Self.FK_PPV_Vendor">
+      <End Role="Vendor" EntitySet="Vendor" />
+      <End Role="PPV" EntitySet="PPV" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

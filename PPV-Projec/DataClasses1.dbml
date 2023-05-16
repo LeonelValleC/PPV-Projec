@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="PPVdb" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=MEX-SQL-001;Initial Catalog=PPVdb;User ID=admin_sql;Password=DaBatase#40107;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="PPVdbConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.PN" Member="PNs">
+    <Type Name="PN">
+      <Column Name="id_pn" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="pn" Member="pn1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="pnDesc" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

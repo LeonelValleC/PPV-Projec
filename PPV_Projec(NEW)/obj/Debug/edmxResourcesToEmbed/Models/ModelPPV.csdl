@@ -1,0 +1,426 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PPVdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="PPVdbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Clients" EntityType="PPVdbModel.Client" />
+    <EntitySet Name="levels" EntityType="PPVdbModel.level" />
+    <EntitySet Name="MFGs" EntityType="PPVdbModel.MFG" />
+    <EntitySet Name="PNs" EntityType="PPVdbModel.PN" />
+    <EntitySet Name="PPVs" EntityType="PPVdbModel.PPV" />
+    <EntitySet Name="PPV_Fail" EntityType="PPVdbModel.PPV_Fail" />
+    <EntitySet Name="sysdiagrams" EntityType="PPVdbModel.sysdiagram" />
+    <EntitySet Name="users" EntityType="PPVdbModel.user" />
+    <EntitySet Name="Vendors" EntityType="PPVdbModel.Vendor" />
+    <AssociationSet Name="FK_PPV_Client" Association="PPVdbModel.FK_PPV_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="PPV" EntitySet="PPVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_Client" Association="PPVdbModel.FK_PPV_Fail_Client">
+      <End Role="Client" EntitySet="Clients" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__users__id_level__1273C1CD" Association="PPVdbModel.FK__users__id_level__1273C1CD">
+      <End Role="level" EntitySet="levels" />
+      <End Role="user" EntitySet="users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_MFG" Association="PPVdbModel.FK_PPV_Fail_MFG">
+      <End Role="MFG" EntitySet="MFGs" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_MFG" Association="PPVdbModel.FK_PPV_MFG">
+      <End Role="MFG" EntitySet="MFGs" />
+      <End Role="PPV" EntitySet="PPVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_PN" Association="PPVdbModel.FK_PPV_Fail_PN">
+      <End Role="PN" EntitySet="PNs" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_PN" Association="PPVdbModel.FK_PPV_PN">
+      <End Role="PN" EntitySet="PNs" />
+      <End Role="PPV" EntitySet="PPVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV__buyer__49C3F6B7" Association="PPVdbModel.FK__PPV__buyer__49C3F6B7">
+      <End Role="user" EntitySet="users" />
+      <End Role="PPV" EntitySet="PPVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV__first_auth__4AB81AF0" Association="PPVdbModel.FK__PPV__first_auth__4AB81AF0">
+      <End Role="user" EntitySet="users" />
+      <End Role="PPV" EntitySet="PPVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV__last_auth__4BAC3F29" Association="PPVdbModel.FK__PPV__last_auth__4BAC3F29">
+      <End Role="user" EntitySet="users" />
+      <End Role="PPV" EntitySet="PPVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Vendor" Association="PPVdbModel.FK_PPV_Vendor">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="PPV" EntitySet="PPVs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV_Fail__buyer__29221CFB" Association="PPVdbModel.FK__PPV_Fail__buyer__29221CFB">
+      <End Role="user" EntitySet="users" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV_Fail__first___2A164134" Association="PPVdbModel.FK__PPV_Fail__first___2A164134">
+      <End Role="user" EntitySet="users" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK__PPV_Fail__last_a__2B0A656D" Association="PPVdbModel.FK__PPV_Fail__last_a__2B0A656D">
+      <End Role="user" EntitySet="users" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PPV_Fail_Vendor" Association="PPVdbModel.FK_PPV_Fail_Vendor">
+      <End Role="Vendor" EntitySet="Vendors" />
+      <End Role="PPV_Fail" EntitySet="PPV_Fail" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="id_client" />
+    </Key>
+    <Property Name="id_client" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="clientID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="client1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PPVs" Relationship="PPVdbModel.FK_PPV_Client" FromRole="Client" ToRole="PPV" />
+    <NavigationProperty Name="PPV_Fail" Relationship="PPVdbModel.FK_PPV_Fail_Client" FromRole="Client" ToRole="PPV_Fail" />
+  </EntityType>
+  <EntityType Name="level">
+    <Key>
+      <PropertyRef Name="id_level" />
+    </Key>
+    <Property Name="id_level" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="level1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="users" Relationship="PPVdbModel.FK__users__id_level__1273C1CD" FromRole="level" ToRole="user" />
+  </EntityType>
+  <EntityType Name="MFG">
+    <Key>
+      <PropertyRef Name="id_mfg" />
+    </Key>
+    <Property Name="id_mfg" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="mfg1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mfg_desc" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PPV_Fail" Relationship="PPVdbModel.FK_PPV_Fail_MFG" FromRole="MFG" ToRole="PPV_Fail" />
+    <NavigationProperty Name="PPVs" Relationship="PPVdbModel.FK_PPV_MFG" FromRole="MFG" ToRole="PPV" />
+  </EntityType>
+  <EntityType Name="PN">
+    <Key>
+      <PropertyRef Name="id_pn" />
+    </Key>
+    <Property Name="id_pn" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="pn1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="pnDesc" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PPV_Fail" Relationship="PPVdbModel.FK_PPV_Fail_PN" FromRole="PN" ToRole="PPV_Fail" />
+    <NavigationProperty Name="PPVs" Relationship="PPVdbModel.FK_PPV_PN" FromRole="PN" ToRole="PPV" />
+  </EntityType>
+  <EntityType Name="PPV">
+    <Key>
+      <PropertyRef Name="id_ppv" />
+    </Key>
+    <Property Name="id_ppv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="wo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="po" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="av_price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="new_price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="buyer" Type="Int32" />
+    <Property Name="reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="times" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OtherChange" Type="Int32" />
+    <Property Name="elaborate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="leadtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="explanation" Type="String" MaxLength="1700" FixedLength="false" Unicode="false" />
+    <Property Name="change_unit" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="change_unit_perc" Type="Double" />
+    <Property Name="current_total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="new_total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total_increase" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="first_auth" Type="Int32" />
+    <Property Name="last_auth" Type="Int32" />
+    <Property Name="date_ppv" Type="DateTime" Precision="3" />
+    <Property Name="first_date" Type="DateTime" Precision="3" />
+    <Property Name="last_date" Type="DateTime" Precision="3" />
+    <Property Name="first_approval" Type="Boolean" />
+    <Property Name="last_approval" Type="Boolean" />
+    <Property Name="pn" Type="Int32" />
+    <Property Name="client" Type="Int32" />
+    <Property Name="vendor" Type="Int32" />
+    <Property Name="first_note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="last_note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="salesOrder" Type="Boolean" />
+    <Property Name="salesOrder_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="void" Type="Boolean" />
+    <Property Name="id_mfg" Type="Int32" />
+    <NavigationProperty Name="Client1" Relationship="PPVdbModel.FK_PPV_Client" FromRole="PPV" ToRole="Client" />
+    <NavigationProperty Name="MFG" Relationship="PPVdbModel.FK_PPV_MFG" FromRole="PPV" ToRole="MFG" />
+    <NavigationProperty Name="PN1" Relationship="PPVdbModel.FK_PPV_PN" FromRole="PPV" ToRole="PN" />
+    <NavigationProperty Name="user" Relationship="PPVdbModel.FK__PPV__buyer__49C3F6B7" FromRole="PPV" ToRole="user" />
+    <NavigationProperty Name="user1" Relationship="PPVdbModel.FK__PPV__first_auth__4AB81AF0" FromRole="PPV" ToRole="user" />
+    <NavigationProperty Name="user2" Relationship="PPVdbModel.FK__PPV__last_auth__4BAC3F29" FromRole="PPV" ToRole="user" />
+    <NavigationProperty Name="Vendor1" Relationship="PPVdbModel.FK_PPV_Vendor" FromRole="PPV" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="PPV_Fail">
+    <Key>
+      <PropertyRef Name="id_ppv" />
+    </Key>
+    <Property Name="id_ppv" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="wo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="po" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="qty" Type="Int32" />
+    <Property Name="av_price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="new_price" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="buyer" Type="Int32" />
+    <Property Name="reason" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="times" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OtherChange" Type="Int32" />
+    <Property Name="elaborate" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="leadtime" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="explanation" Type="String" MaxLength="1700" FixedLength="false" Unicode="false" />
+    <Property Name="change_unit" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="change_unit_perc" Type="Double" />
+    <Property Name="current_total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="new_total" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="total_increase" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="first_auth" Type="Int32" />
+    <Property Name="last_auth" Type="Int32" />
+    <Property Name="date_ppv" Type="DateTime" Precision="3" />
+    <Property Name="first_date" Type="DateTime" Precision="3" />
+    <Property Name="last_date" Type="DateTime" Precision="3" />
+    <Property Name="first_approval" Type="Boolean" />
+    <Property Name="last_approval" Type="Boolean" />
+    <Property Name="pn" Type="Int32" />
+    <Property Name="client" Type="Int32" />
+    <Property Name="vendor" Type="Int32" />
+    <Property Name="first_note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="last_note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="salesOrder" Type="Boolean" />
+    <Property Name="salesOrder_num" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="note" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="void" Type="Boolean" />
+    <Property Name="id_mfg" Type="Int32" />
+    <NavigationProperty Name="Client1" Relationship="PPVdbModel.FK_PPV_Fail_Client" FromRole="PPV_Fail" ToRole="Client" />
+    <NavigationProperty Name="MFG" Relationship="PPVdbModel.FK_PPV_Fail_MFG" FromRole="PPV_Fail" ToRole="MFG" />
+    <NavigationProperty Name="PN1" Relationship="PPVdbModel.FK_PPV_Fail_PN" FromRole="PPV_Fail" ToRole="PN" />
+    <NavigationProperty Name="user" Relationship="PPVdbModel.FK__PPV_Fail__buyer__29221CFB" FromRole="PPV_Fail" ToRole="user" />
+    <NavigationProperty Name="user1" Relationship="PPVdbModel.FK__PPV_Fail__first___2A164134" FromRole="PPV_Fail" ToRole="user" />
+    <NavigationProperty Name="user2" Relationship="PPVdbModel.FK__PPV_Fail__last_a__2B0A656D" FromRole="PPV_Fail" ToRole="user" />
+    <NavigationProperty Name="Vendor1" Relationship="PPVdbModel.FK_PPV_Fail_Vendor" FromRole="PPV_Fail" ToRole="Vendor" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="id" Type="Int32" />
+    <Property Name="id_level" Type="Int32" />
+    <Property Name="code" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="level" Relationship="PPVdbModel.FK__users__id_level__1273C1CD" FromRole="user" ToRole="level" />
+    <NavigationProperty Name="PPVs" Relationship="PPVdbModel.FK__PPV__buyer__49C3F6B7" FromRole="user" ToRole="PPV" />
+    <NavigationProperty Name="PPVs1" Relationship="PPVdbModel.FK__PPV__first_auth__4AB81AF0" FromRole="user" ToRole="PPV" />
+    <NavigationProperty Name="PPVs2" Relationship="PPVdbModel.FK__PPV__last_auth__4BAC3F29" FromRole="user" ToRole="PPV" />
+    <NavigationProperty Name="PPV_Fail" Relationship="PPVdbModel.FK__PPV_Fail__buyer__29221CFB" FromRole="user" ToRole="PPV_Fail" />
+    <NavigationProperty Name="PPV_Fail1" Relationship="PPVdbModel.FK__PPV_Fail__first___2A164134" FromRole="user" ToRole="PPV_Fail" />
+    <NavigationProperty Name="PPV_Fail2" Relationship="PPVdbModel.FK__PPV_Fail__last_a__2B0A656D" FromRole="user" ToRole="PPV_Fail" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="id_vendor" />
+    </Key>
+    <Property Name="id_vendor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="vendorID" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vendor1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="PPVs" Relationship="PPVdbModel.FK_PPV_Vendor" FromRole="Vendor" ToRole="PPV" />
+    <NavigationProperty Name="PPV_Fail" Relationship="PPVdbModel.FK_PPV_Fail_Vendor" FromRole="Vendor" ToRole="PPV_Fail" />
+  </EntityType>
+  <Association Name="FK_PPV_Client">
+    <End Type="PPVdbModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV" Role="PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_Client">
+    <End Type="PPVdbModel.Client" Role="Client" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV_Fail" Role="PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="id_client" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="client" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__users__id_level__1273C1CD">
+    <End Type="PPVdbModel.level" Role="level" Multiplicity="0..1" />
+    <End Type="PPVdbModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="level">
+        <PropertyRef Name="id_level" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="id_level" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_MFG">
+    <End Type="PPVdbModel.MFG" Role="MFG" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV_Fail" Role="PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MFG">
+        <PropertyRef Name="id_mfg" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="id_mfg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_MFG">
+    <End Type="PPVdbModel.MFG" Role="MFG" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV" Role="PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MFG">
+        <PropertyRef Name="id_mfg" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="id_mfg" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_PN">
+    <End Type="PPVdbModel.PN" Role="PN" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV_Fail" Role="PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PN">
+        <PropertyRef Name="id_pn" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="pn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_PN">
+    <End Type="PPVdbModel.PN" Role="PN" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV" Role="PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PN">
+        <PropertyRef Name="id_pn" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="pn" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV__buyer__49C3F6B7">
+    <End Type="PPVdbModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV" Role="PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV__first_auth__4AB81AF0">
+    <End Type="PPVdbModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV" Role="PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="first_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV__last_auth__4BAC3F29">
+    <End Type="PPVdbModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV" Role="PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="last_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Vendor">
+    <End Type="PPVdbModel.Vendor" Role="Vendor" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV" Role="PPV" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="id_vendor" />
+      </Principal>
+      <Dependent Role="PPV">
+        <PropertyRef Name="vendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV_Fail__buyer__29221CFB">
+    <End Type="PPVdbModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV_Fail" Role="PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV_Fail__first___2A164134">
+    <End Type="PPVdbModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV_Fail" Role="PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="first_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__PPV_Fail__last_a__2B0A656D">
+    <End Type="PPVdbModel.user" Role="user" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV_Fail" Role="PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="id_user" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="last_auth" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PPV_Fail_Vendor">
+    <End Type="PPVdbModel.Vendor" Role="Vendor" Multiplicity="0..1" />
+    <End Type="PPVdbModel.PPV_Fail" Role="PPV_Fail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Vendor">
+        <PropertyRef Name="id_vendor" />
+      </Principal>
+      <Dependent Role="PPV_Fail">
+        <PropertyRef Name="vendor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

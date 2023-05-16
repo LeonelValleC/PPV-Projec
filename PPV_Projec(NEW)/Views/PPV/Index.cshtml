@@ -1,0 +1,196 @@
+﻿@model IEnumerable<PPV_Projec_NEW_.Models.PPV>
+
+
+
+
+
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+
+}
+
+
+<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.wo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.po)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.qty)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.av_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.new_price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reason)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.times)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OtherChange)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.elaborate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.leadtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.explanation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.change_unit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.change_unit_perc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.current_total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.new_total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.total_increase)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.date_ppv)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.first_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.first_approval)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last_approval)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.first_note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.last_note)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.salesOrder)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.salesOrder_num)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.note)
+            </th>
+
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.wo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.po)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.qty)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.av_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.new_price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.reason)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.times)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OtherChange)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.elaborate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.leadtime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.explanation)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.change_unit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.change_unit_perc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.current_total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.new_total)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.total_increase)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.date_ppv)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_approval)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_approval)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.first_note)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.last_note)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salesOrder)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salesOrder_num)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.note)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.id_ppv }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.id_ppv }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.id_ppv })
+                </td>
+            </tr>
+        }
+
+    </table>

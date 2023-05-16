@@ -1,0 +1,296 @@
+﻿@model PPV_Projec_NEW_.Models.PPV
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>PPV</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.wo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.wo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.po)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.po)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.qty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.qty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.av_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.av_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.new_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.new_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.reason)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.reason)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.times)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.times)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OtherChange)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OtherChange)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.elaborate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.elaborate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.leadtime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.leadtime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.explanation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.explanation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.change_unit_perc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.change_unit_perc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.current_total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.current_total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.new_total)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.new_total)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.total_increase)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.total_increase)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date_ppv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date_ppv)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.first_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.first_approval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first_approval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_approval)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_approval)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.first_note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.first_note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salesOrder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrder_num)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salesOrder_num)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.note)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.note)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.void)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.void)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Client1.clientID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Client1.clientID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MFG.mfg1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MFG.mfg1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PN1.pn1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PN1.pn1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user1.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user1.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.user2.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.user2.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Vendor1.vendorID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Vendor1.vendorID)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

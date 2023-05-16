@@ -1,0 +1,10 @@
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\bin\Debug\Desktop-PPV.exe.config
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\bin\Debug\Desktop-PPV.exe
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\bin\Debug\Desktop-PPV.pdb
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\obj\Debug\Desktop-PPV.csproj.AssemblyReference.cache
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\obj\Debug\Desktop_PPV.Properties.Resources.resources
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\obj\Debug\Desktop_PPV.Upload.resources
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\obj\Debug\Desktop-PPV.csproj.GenerateResource.cache
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\obj\Debug\Desktop-PPV.csproj.CoreCompileInputs.cache
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\obj\Debug\Desktop-PPV.exe
+C:\Users\leonel.valle\source\repos\PPV-Projec\Desktop-PPV\obj\Debug\Desktop-PPV.pdb
